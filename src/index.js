@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import App from './components/App';
 import {configureStore} from './store';
 
-let store = configureStore();
+const store = configureStore();
 console.log('store : ', store.getState());
 
 
