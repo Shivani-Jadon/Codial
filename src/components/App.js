@@ -27,6 +27,7 @@ function mapStateToProps(state){
   }
 };
 
+// this check whether the prop type is what is required
 App.propTypes = {
   posts : propTypes.array.isRequired,
 }

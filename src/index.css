@@ -19,7 +19,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #eceffa;
+  background: #212121;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -54,16 +54,19 @@ code {
 
 /* Post Item */
 .post-wrapper {
+  padding : 2px;
   border: 1px solid #e0e0e0;
   box-sizing: border-box;
   border-radius: 4px;
-  margin-top: 20px;
+  margin: 20px;
   background: #fff;
 }
 .post-header {
   padding: 10px 10px;
+  background: linear-gradient(90deg, black, #212121,#424242);
 }
 .post-avatar {
+  color: gainsboro;
   display: flex;
 }
 .post-avatar > div {
@@ -75,7 +78,7 @@ code {
   height: 40px;
 }
 .post-avatar .post-author {
-  color: #616161;
+  color: gainsboro;
   /* font-family: Open Sans; */
   font-style: normal;
   font-weight: 600;
@@ -96,13 +99,13 @@ code {
   font-weight: normal;
   font-size: 16px;
   line-height: 22px;
-  color: #424242;
+  color: #E0E0E0;
   margin-top: 15px;
 }
 .post-actions {
   padding: 5px;
   display: flex;
-  border: 1px solid #e0e0e0;
+  /* border-top: 1px solid #e0e0e0; */
   padding: 5px 10px;
   font-weight: normal;
   font-size: 14px;
@@ -112,7 +115,7 @@ code {
   border-left: none;
 }
 .post-actions img {
-  height: 18px;
+  height: 15px;
 }
 .post-actions img:hover {
   cursor: pointer;
@@ -142,6 +145,8 @@ code {
   font-size: 15px;
   box-sizing: border-box;
   padding: 5px;
+  background-color: transparent;
+  color: gainsboro;
 }
 .post-comment-box input:focus {
   outline: none;
@@ -179,6 +184,7 @@ code {
 }
 .post-comment-content {
   margin-top: 7px;
+  color: #E0E0E0;
 }
 .post-comments-list .comment-like {
   position: absolute;
