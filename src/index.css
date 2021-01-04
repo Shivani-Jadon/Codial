@@ -19,7 +19,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #212121;
+  background: #424242;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -58,12 +58,12 @@ code {
   border: 1px solid #e0e0e0;
   box-sizing: border-box;
   border-radius: 4px;
-  margin: 20px;
+  margin: 18px;
   background: #fff;
 }
 .post-header {
   padding: 10px 10px;
-  background: linear-gradient(90deg, black, #212121,#424242);
+  background: linear-gradient(90deg, black, #212121);
 }
 .post-avatar {
   color: gainsboro;
