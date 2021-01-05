@@ -63,7 +63,8 @@ code {
 }
 .post-header {
   padding: 10px 10px;
-  background: linear-gradient(90deg, black, #212121);
+  /* background: linear-gradient(90deg, black, #212121); */
+  background-color: #201748;
 }
 .post-avatar {
   color: gainsboro;
@@ -139,14 +140,14 @@ code {
 .post-comment-box input {
   border: 1px solid #e0e0e0;
   border-radius: 4px;
-  height: 35px;
+  /* height: 35px; */
   margin: 0 auto;
   width: 100%;
   font-size: 15px;
   box-sizing: border-box;
   padding: 5px;
-  background-color: transparent;
-  color: gainsboro;
+  background-color: #e0e0e0;
+  color: #201748;
 }
 .post-comment-box input:focus {
   outline: none;
@@ -383,10 +384,10 @@ nav .nav-links ul li:hover {
 .login-signup-header {
   font-weight: 600;
   font-size: 30px;
-  color: #ef7917;
+  color: white
 }
 .login-form {
-  background-color: #fff;
+  background-color: #201748;
   padding: 20px;
   box-sizing: border-box;
   display: flex;
@@ -409,6 +410,7 @@ nav .nav-links ul li:hover {
   margin-top: 20px;
   padding: 5px;
   font-size: 15px;
+  background-color: #e0e0e0;
 }
 .field input:focus {
   outline: none;
@@ -416,16 +418,17 @@ nav .nav-links ul li:hover {
 .field button {
   width: 100%;
   margin-top: 20px;
-  background: #ef7917;
+  background:#201748;
   border-radius: 2px;
   color: #fff;
   font-size: 20px;
   padding: 9px;
-  border: none;
+  border: 2px white solid;
   outline: none;
 }
 .field button:hover {
   cursor: pointer;
+  background-color: #9fa8da;
 }
 
 /* SETTINGS and USERPROFILE */

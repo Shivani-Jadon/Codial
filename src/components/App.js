@@ -2,14 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
 import {fetchPosts} from '../actions/posts';
-import { PostList, Navbar, Home, Page404 } from './';
+import { PostList, Navbar, Home, Page404, Login, Signup } from './';
 import propTypes from 'prop-types';
 
  
-const Login = () => <div>Login</div>;
-const Signup = () => <div>Signup</div>;
-
-
 class App extends React.Component{
 
   componentDidMount(){
