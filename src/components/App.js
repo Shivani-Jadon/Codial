@@ -1,8 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import {fetchPosts} from '../actions/posts';
-import { PostList } from './';
+import { PostList, Navbar } from './';
 import propTypes from 'prop-types';
+
+const Home = () => <div>Home</div>;
+const Login = () => <div>Login</div>;
+const Signup = () => <div>Signup</div>;
+
+
 
 class App extends React.Component{
 
@@ -13,46 +20,30 @@ class App extends React.Component{
   render(){
     const { posts }  = this.props;
     return (
-      <div>
-        <nav className='nav'>
-          <div className='left-div'>            
-            <img className='logo-icons' src="https://www.flaticon.com/svg/static/icons/svg/3437/3437338.svg" alt="logo" />
-            <div className='logo'>Codial</div>
-          </div>
+      <Router>
+        <div>
+          <Navbar />
+          {/* <PostList posts={posts} /> */}
 
-          <div className='search-container'>
-            <input placeholder="Search" />
-            <div className="search-results">
-              <ul>
-                <li className="search-results-row">
-                  <img  src="https://www.flaticon.com/svg/static/icons/svg/3237/3237447.svg" alt="User Avatar"/>
-                  <span>Shivani J</span>
-                </li>
-                <li className="search-results-row">
-                  <img  src="https://www.flaticon.com/svg/static/icons/svg/3237/3237447.svg" alt="User Avatar"/>
-                  <span>Shivani J</span>
-                </li>
-              </ul>
-            </div>
+          {/* we use Link for going to urls instead of <a> for avoiding refresing of page (it interanally uses <a>) */}
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/Login">Login</Link>
+            </li>
+            <li>
+              <Link to="/Signup">Signup</Link>
+            </li>
+          </ul>
 
-          </div>
-          <div className='right-nav'>
-            <div className='user'>
-                <img src="https://www.flaticon.com/svg/static/icons/svg/3237/3237447.svg" alt="User Avatar" id="user-dp"/>
-                <span>Shivani Jadon</span>
-            </div>
-            <div className="nav-links">
-              <ul>
-                <li>Login</li>
-                <li>Logout</li>
-                <li>Register</li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <PostList posts={posts} />
-      </div>
-      
+          {/* exact path for routes */}
+          <Route exact={true} path="/" component={Home} />
+          <Route path="/Login" component={Login} />
+          <Route path="/Signup" component={Signup} />
+        </div>
+      </Router>
     )
   }
 }
