@@ -1,11 +1,14 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 function Navbar(props){
     return (
     <nav className='nav'>
-          <div className='left-div'>            
+          <div className='left-div'>    
+            <Link to="/">
             <img className='logo-icons' src="https://www.flaticon.com/svg/static/icons/svg/3437/3437338.svg" alt="logo" />
             <div className='logo'>Codial</div>
+            </Link>
           </div>
 
           <div className='search-container'>
@@ -30,11 +33,19 @@ function Navbar(props){
                 <span>Shivani Jadon</span>
             </div>
             <div className="nav-links">
-              <ul>
-                <li>Login</li>
-                <li>Logout</li>
-                <li>Register</li>
-              </ul>
+                {/* we use Link for going to urls instead of <a> for avoiding refresing of page (it interanally uses <a>) */}
+                <ul>                    
+                    <li>
+                    <Link to="/Login">Login</Link>
+                    </li>
+                    <li>
+                    <Link to="/Signup">Signup</Link>
+                    </li>
+                    <li>
+                    <Link to="/Register">Register</Link>
+                    </li>
+                </ul>
+                
             </div>
           </div>
         </nav>
