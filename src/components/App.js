@@ -15,8 +15,9 @@ class App extends React.Component{
     return (
       <div>
         <nav className='nav'>
-          <div className='left-div'>
-            {/* <img className='logo-icons' src="https://www.flaticon.com/svg/static/icons/svg/3437/3437338.svg" alt="logo" />Codial */}
+          <div className='left-div'>            
+            <img className='logo-icons' src="https://www.flaticon.com/svg/static/icons/svg/3437/3437338.svg" alt="logo" />
+            <div className='logo'>Codial</div>
           </div>
 
           <div className='search-container'>
@@ -38,12 +39,12 @@ class App extends React.Component{
           <div className='right-nav'>
             <div className='user'>
                 <img src="https://www.flaticon.com/svg/static/icons/svg/3237/3237447.svg" alt="User Avatar" id="user-dp"/>
-                <span>Shivani J</span>
+                <span>Shivani Jadon</span>
             </div>
             <div className="nav-links">
               <ul>
-                <li>Log in</li>
-                <li>Log out</li>
+                <li>Login</li>
+                <li>Logout</li>
                 <li>Register</li>
               </ul>
             </div>

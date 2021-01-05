@@ -19,7 +19,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #424242;
+  background: #9FA8DA;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -201,18 +201,25 @@ code {
 /* NAVBAR */
 .nav {
   display: flex;
-  background: #6200ee;
+  background: #201748;
   padding: 10px 20px;
   align-items: center;
   justify-content: space-between;
 }
 .logo {
-  color: #fff;
-  font-size: 35px;
+  margin: -44px 10px 10px -4px;
+  color: white;
+  text-shadow: -1px 2px 4px black;
+  font-size: 20px;
+  /* margin-bottom: 10px; */
+  font-weight: 600;
+  font-style: italic;
+  /* margin-left: -4px; */
 }
 .logo-icons {
   font-size: 40px;
   color: #ece60e;
+  width: 50px;
 }
 nav #user-dp {
   height: 40px;
@@ -222,7 +229,9 @@ nav .user {
   align-items: center;
 }
 nav span {
-  margin-left: 10px;
+  margin-left: 4px;
+  margin-right: 20px;
+  color: cornflowerblue;
 }
 nav .right-nav {
   display: flex;
@@ -235,6 +244,7 @@ nav .right-nav {
 nav .nav-links ul {
   display: flex;
   list-style-type: none;
+  padding: 0;
 }
 nav .nav-links ul li {
   padding: 0 4px;
@@ -266,6 +276,7 @@ nav .nav-links ul li:hover {
   padding-left: 31px;
   box-sizing: border-box;
   flex-grow: 1;
+  color: #6495ee;
 }
 .search-container input:focus {
   outline: none;
@@ -277,7 +288,7 @@ nav .nav-links ul li:hover {
   left: 7px;
 }
 .search-results {
-  background: #fff;
+  background:  black;
   flex-grow: 1;
   border-radius: 0 0 3px 3px;
   position: absolute;
@@ -286,13 +297,15 @@ nav .nav-links ul li:hover {
   border: 1px solid #e0e0e0;
   z-index: 100;
   max-height: 452px;
-  overflow: scroll;
+  overflow: auto;
+  box-sizing: border-box;
   /* display: none; */
 }
 .search-results ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  color: #212121;
 }
 .search-results ul a {
   text-decoration: none;
