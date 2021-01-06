@@ -43,8 +43,8 @@ code {
 
 .error-dailog {
   color: #721c24;
-  background-color: #f8d7da;
-  border-color: #f5c6cb;
+  background-color: lightpink;
+  border-color: lightpink;
 }
 .success-dailog {
   color: #155724;
@@ -431,6 +431,10 @@ nav .nav-links ul li:hover {
 .field button:hover {
   cursor: pointer;
   background-color: #9fa8da;
+}
+.field button:disabled {
+  cursor: none;
+  background-color: #201748;
 }
 
 /* SETTINGS and USERPROFILE */

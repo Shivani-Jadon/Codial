@@ -1,3 +1,5 @@
+// HELPER TO CONVERT PARAMS IN URLS
+
 export function getFormBody (params) {
     let formBody = [];
 
@@ -6,7 +8,7 @@ export function getFormBody (params) {
         let encodedKey = encodeURIComponent(property); // 'user name' => 'user%20name'
         let encodedValue = encodeURIComponent(params[property]); //'Shivani J' => 'Shivani%20J
 
-        formBody(encodedKey + '=' + encodedValue);
+        formBody.push(encodedKey + '=' + encodedValue);
     }
 
     return formBody.join('&');
