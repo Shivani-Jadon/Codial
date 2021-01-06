@@ -6,6 +6,9 @@ class Signup extends React.Component{
         return(
             <form className='login-form'>
                 <span className='login-signup-header'>Signup</span>
+                ]<div className='field'>
+                    <input type="text" placeholder="Name" required/>
+                </div>
                 <div className='field'>
                     <input type="email" placeholder="Email" required/>
                 </div>
