@@ -71,7 +71,7 @@ export function signupSuccess(user) {
 }
 
 
-export function signup(name, email, password, confirmPassword) {
+export function signup(username, email, password, confirmPassword) {
     return (dispatch) => {
         dispatch(startSignup());
         const url = APIUrls.signup();
@@ -81,12 +81,18 @@ export function signup(name, email, password, confirmPassword) {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body : getFormBody({ name, email, password, confirmPassword }),
+            body : getFormBody({ 
+                username, 
+                email, 
+                password, 
+                confirm_password : confirmPassword 
+            }),
         })
         .then(response => response.json())
         .then(data => {
             console.log('data' , data);
             if ( data.success) {
+                localStorage.setItem('token', data.data.token);
                 dispatch(signupSuccess(data.data.user))
                 return;
             }
