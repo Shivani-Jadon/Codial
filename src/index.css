@@ -387,14 +387,16 @@ nav .nav-links ul li:hover {
   color: white
 }
 .login-form {
+  min-width: 350px;
+  max-width: 450px;
   background-color: #201748;
-  padding: 20px;
+  padding: 40px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30%;
+  width: 40%;
   margin: 50px auto;
   border-radius: 6px;
 }
@@ -421,8 +423,8 @@ nav .nav-links ul li:hover {
   background:#201748;
   border-radius: 2px;
   color: #fff;
-  font-size: 20px;
-  padding: 9px;
+  font-size: 18px;
+  padding: 5px;
   border: 2px white solid;
   outline: none;
 }
