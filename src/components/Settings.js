@@ -13,6 +13,14 @@ class Settings extends Component{
         };
     }
 
+    handleChange = (fieldName, val) => {
+        this.setState(
+            {
+                [fieldName] : val
+            }
+        )
+    }
+
     render(){
         const { user } = this.props.auth;
         const { editMode } = this.state;
@@ -34,7 +42,7 @@ class Settings extends Component{
                     <div className='field-label'>Name</div>
                     {editMode ? (
                         <input type="text"
-                            onChange={() => this.handleChange() }
+                            onChange={(e) => this.handleChange('name', e.target.value) }
                             value={this.state.name}
                         />
                     ) : (
@@ -46,7 +54,7 @@ class Settings extends Component{
                     <div className="field">
                         <div className='field-label'>New Password</div>
                         <input type="password"
-                            onChange={() => this.handleChange() }
+                            onChange={(e) => this.handleChange('password', e.target.value) }
                             value={this.state.password}
                         />
                     </div>
@@ -56,7 +64,7 @@ class Settings extends Component{
                     <div className="field">
                         <div className='field-label'>Confirm Password</div>
                         <input type="password"
-                            onChange={() => this.handleChange() }
+                            onChange={(e) => this.handleChange('confirmPassword', e.target.value) }
                             value={this.state.confirmPassword}
                         />
                     </div>
@@ -66,10 +74,12 @@ class Settings extends Component{
                     {editMode ? (
                         <button className="button save-btn">Save</button>
                     ) : (
-                        <button className="button edit-btn">Edit Profile</button>
+                        <button className="button edit-btn"
+                         onClick={() => this.handleChange('editMode', true)}>Edit Profile</button>
                     )}
 
-                    {editMode && <div className="go-back"> Go Back </div> }
+                    {editMode && <div className="go-back"
+                     onClick={() => this.handleChange('editMode', false)}> Go Back </div> }
                 </div>
             </div>
         )

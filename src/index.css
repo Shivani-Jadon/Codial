@@ -446,11 +446,12 @@ nav .nav-links ul li:hover {
   border-radius: 6px;
   margin-top: 50px;
   margin-left: 30px;
+  margin-bottom: 30px;
   width: 40%;
 }
 .settings .img-container {
   display: flex;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   justify-content: center;
 }
 .settings .img-container img {
@@ -458,7 +459,9 @@ nav .nav-links ul li:hover {
 }
 .settings .btn-grp {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
+  align-items: baseline;
+  justify-content: space-between;
 }
 .settings button {
   border-radius: 6px;
@@ -486,7 +489,7 @@ nav .nav-links ul li:hover {
   padding: 10px 20px;
 }
 .settings .go-back {
-  color: #ef7917;
+  color: cornflowerblue;
   margin-top: 7px;
   font-size: 13px;
 }
