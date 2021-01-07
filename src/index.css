@@ -64,7 +64,7 @@ code {
 .post-header {
   padding: 10px 10px;
   /* background: linear-gradient(90deg, black, #212121); */
-  background-color: #201748;
+  background-color:#282b48;
 }
 .post-avatar {
   color: gainsboro;
@@ -147,7 +147,7 @@ code {
   box-sizing: border-box;
   padding: 5px;
   background-color: #e0e0e0;
-  color: #201748;
+  color:#282b48;
 }
 .post-comment-box input:focus {
   outline: none;
@@ -202,7 +202,7 @@ code {
 /* NAVBAR */
 .nav {
   display: flex;
-  background: #201748;
+  background:#282b48;
   padding: 10px 20px;
   align-items: center;
   justify-content: space-between;
@@ -389,7 +389,7 @@ nav .nav-links ul li:hover {
 .login-form {
   min-width: 350px;
   max-width: 450px;
-  background-color: #201748;
+  background-color:#282b48;
   padding: 40px;
   box-sizing: border-box;
   display: flex;
@@ -420,7 +420,7 @@ nav .nav-links ul li:hover {
 .field button {
   width: 100%;
   margin-top: 20px;
-  background:#201748;
+  background: #282b48;
   border-radius: 2px;
   color: #fff;
   font-size: 18px;
@@ -434,7 +434,7 @@ nav .nav-links ul li:hover {
 }
 .field button:disabled {
   cursor: none;
-  background-color: #201748;
+  background-color:#282b48;
 }
 
 /* SETTINGS and USERPROFILE */
