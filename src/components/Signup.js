@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {signup} from '../actions/auth';
+import { Redirect } from 'react-router-dom';
+import { signup, startSignup, clearAuthState } from '../actions/auth';
+
 
 class Signup extends React.Component{
 
@@ -12,6 +14,10 @@ class Signup extends React.Component{
             password : '',
             confirmPassword : '',
         }
+    }
+
+    componentWillUnmount(){
+        this.props.dispatch( clearAuthState() );
     }
 
     handleNameChange = (e) => {
@@ -46,6 +52,7 @@ class Signup extends React.Component{
         const {username, email, password, confirmPassword} = this.state;
 
         if(username && email && password && confirmPassword) {
+            this.props.dispatch( startSignup() );
             this.props.dispatch( signup(username, email, password, confirmPassword) );
         }
     }
@@ -53,7 +60,11 @@ class Signup extends React.Component{
 
     render(){
                   
-        const {error, inProgress} = this.props.auth;
+        const {error, inProgress, isLoggedIn } = this.props.auth;
+
+        if (isLoggedIn) {
+            return <Redirect to='/'></Redirect>
+        }
 
         return(
             <form className='login-form'>
@@ -81,17 +92,17 @@ class Signup extends React.Component{
                     onChange={this.handleConfirmPasswordChange}
                     />
                 </div>
-                <div className='field'>                   
+                {/* <div className='field'>                   
                     <button onClick={this.handleFormSubmit} disabled={inProgress} >Signup</button>               
-                </div>
-                {/* <div className='field'>
+                </div> */}
+                <div className='field'>
                     {
                         inProgress ? (
                         <button onClick={this.handleFormSubmit} disabled={inProgress} >Signing up......</button> ) : (
                         <button onClick={this.handleFormSubmit} disabled={inProgress} >Signup</button> )
 
                     }                    
-                </div> */}
+                </div>
                 
             </form>
         )
