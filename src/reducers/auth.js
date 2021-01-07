@@ -51,6 +51,7 @@ export default function auth(state = initialAuthState, action){
         case LOGOUT:
             return{
                 ...state,
+                user: {},
                 isLoggedIn: false,
             }
             

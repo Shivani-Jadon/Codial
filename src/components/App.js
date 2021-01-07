@@ -1,16 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import propTypes from 'prop-types';
-import * as jwtDecode from 'jwt-decode';
-import {BrowserRouter as Router, Link, Redirect, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
 import {fetchPosts} from '../actions/posts';
-import { Navbar, Home, Page404, Login, Signup } from './';
+import { Navbar, Home, Page404, Login, Signup, Settings } from './';
+import jwt_decode from 'jwt-decode';
 import { authUser } from '../actions/auth';
 
-
-const Settings = () => {
-  return <div>Settings</div>
-}
 
 const PrivateRoute = (privateRouteProps) => {
   const { isLoggedIn, path, component: Component } = privateRouteProps;
@@ -30,11 +26,11 @@ class App extends React.Component{
   componentDidMount(){
     this.props.dispatch( fetchPosts() );
 
-    //  STORING JWT OKEN INB LOCAL STORAGE
+    //  STORING JWT TOKEN IN LOCAL STORAGE
     const token = localStorage.getItem('token');
 
-    if(token) {
-      const user = jwtDecode(token);
+    if (token) {
+      const user = jwt_decode(token);
       console.log('user', user);
 
       this.props.dispatch(
@@ -63,7 +59,7 @@ class App extends React.Component{
             />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
-            <PrivateRoute path="/setttings" component={Settings} isLoggedIn={auth.isLoggedIn} />
+            <PrivateRoute path="/settings" component={Settings} isLoggedIn={auth.isLoggedIn} />
             <Route component={Page404} />
           </Switch>
         </div>

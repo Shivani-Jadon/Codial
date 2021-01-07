@@ -475,12 +475,12 @@ nav .nav-links ul li:hover {
   outline: none;
 }
 .settings .edit-btn {
-  border: 1px solid #ef7917;
+  border: 1px solid cornflowerblue;
   box-sizing: border-box;
-  color: #ef7917;
+  color: cornflowerblue;
 }
 .settings .save-btn {
-  background: #ef7917;
+  background: cornflowerblue;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -507,6 +507,7 @@ nav .nav-links ul li:hover {
 }
 .settings .field input {
   margin-top: 6px;
+  color: #282b48;
 }
 /* CREATEPOST */
 .create-post {

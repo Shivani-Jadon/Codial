@@ -38,9 +38,10 @@ export function login(email, password) {
             body : getFormBody({ email, password }),
         })
         .then(response => response.json())
-        .then(data => {
+        .then((data) => {
             console.log('data' , data);
             if ( data.success) {
+                localStorage.setItem('token', data.data.token);
                 dispatch(loginSuccess(data.data.user))
                 return;
             }
@@ -83,14 +84,14 @@ export function signup(username, email, password, confirmPassword) {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body : getFormBody({ 
-                username, 
+                name: username, 
                 email, 
                 password, 
                 confirm_password : confirmPassword 
             }),
         })
         .then(response => response.json())
-        .then(data => {
+        .then((data) => {
             console.log('data' , data);
             if ( data.success ) {
                 // store token in localStorage

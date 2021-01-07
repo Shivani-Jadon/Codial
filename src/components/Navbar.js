@@ -43,7 +43,9 @@ class Navbar extends React.Component{
           <div className='right-nav'>
             {auth.isLoggedIn && 
             <div className='user'>
+              <Link to="/settings">
                 <img src="https://www.flaticon.com/svg/static/icons/svg/3237/3237447.svg" alt="User Avatar" id="user-dp"/>
+              </Link>  
                 <span>{ auth.user.name }</span>
             </div>
             }
@@ -51,7 +53,7 @@ class Navbar extends React.Component{
                 {/* we use Link for going to urls instead of <a> for avoiding refresing of page (it interanally uses <a>) */}
                 <ul>  
                   {!auth.isLoggedIn && <li>
-                    <Link to="/Login">Login</Link>
+                    <Link to="/login">Login</Link>
                     </li>
                   }                  
                   {auth.isLoggedIn && 
@@ -60,7 +62,7 @@ class Navbar extends React.Component{
                     </li>
                   }  
                   {!auth.isLoggedIn && <li>
-                    <Link to="/Signup">Register</Link>
+                    <Link to="/signup">Register</Link>
                     </li>
                   } 
                     
