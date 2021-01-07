@@ -1,12 +1,30 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import * as jwtDecode from 'jwt-decode'
-import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
-import {fetchPosts} from '../actions/posts';
-import { PostList, Navbar, Home, Page404, Login, Signup } from './';
 import propTypes from 'prop-types';
+import * as jwtDecode from 'jwt-decode';
+import {BrowserRouter as Router, Link, Redirect, Route, Switch} from 'react-router-dom';
+import {fetchPosts} from '../actions/posts';
+import { Navbar, Home, Page404, Login, Signup } from './';
+import { authUser } from '../actions/auth';
 
- 
+
+const Settings = () => {
+  return <div>Settings</div>
+}
+
+const PrivateRoute = (privateRouteProps) => {
+  const { isLoggedIn, path, component: Component } = privateRouteProps;
+
+  return (
+    <Route 
+      path={path}
+      render={(props) => {
+        return isLoggedIn ? <Component {...props} /> : <Redirect to="/login" />;
+      }}
+    />
+  );
+}
+
 class App extends React.Component{
 
   componentDidMount(){
@@ -18,11 +36,19 @@ class App extends React.Component{
     if(token) {
       const user = jwtDecode(token);
       console.log('user', user);
+
+      this.props.dispatch(
+        authUser({
+          email: user.email,
+          _id: user._id,
+          name: user.name,
+        })
+      )
     }
   }
 
   render(){
-    const { posts }  = this.props;
+    const { posts, auth }  = this.props;
     return (
       <Router>
         <div>
@@ -35,8 +61,9 @@ class App extends React.Component{
                 return <Home {...props} posts={posts} />
               } }
             />
-            <Route path="/Login" component={Login} />
-            <Route path="/Signup" component={Signup} />
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
+            <PrivateRoute path="/setttings" component={Settings} isLoggedIn={auth.isLoggedIn} />
             <Route component={Page404} />
           </Switch>
         </div>
@@ -48,6 +75,7 @@ class App extends React.Component{
 function mapStateToProps(state){
   return {
     posts : state.posts,
+    auth : state.auth,
   }
 };
 
