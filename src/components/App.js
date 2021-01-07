@@ -12,6 +12,7 @@ class App extends React.Component{
   componentDidMount(){
     this.props.dispatch( fetchPosts() );
 
+    //  STORING JWT OKEN INB LOCAL STORAGE
     const token = localStorage.getItem('token');
 
     if(token) {

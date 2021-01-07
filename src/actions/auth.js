@@ -1,5 +1,6 @@
 import { LOGIN_FAILED, LOGIN_START, LOGIN_SUCCESS} from './actionTypes';
 import { SIGNUP_FAILED, SIGNUP_START, SIGNUP_SUCCESS } from './actionTypes';
+import {AUTHENTICATE_USER, LOGOUT} from '../actions/actionTypes';
 import { APIUrls } from '../helpers/urls';
 import { getFormBody } from '../helpers/utils';
 
@@ -99,5 +100,20 @@ export function signup(username, email, password, confirmPassword) {
             }
             dispatch(signupFailed(data.message));
         });
+    }
+}
+
+
+// PERSIST USER
+export function authUser(user) {
+    return {
+        type: AUTHENTICATE_USER,
+        user,
+    }
+}
+
+export function logoutUser(){
+    return{
+        type: LOGOUT,
     }
 }
