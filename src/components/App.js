@@ -11,11 +11,18 @@ import { authUser } from '../actions/auth';
 const PrivateRoute = (privateRouteProps) => {
   const { isLoggedIn, path, component: Component } = privateRouteProps;
 
+  // the location stores the previous location which user wanted to access
+  // Instaed of redirection everytime to home page it will redirected which the user was trying to access
   return (
     <Route 
       path={path}
       render={(props) => {
-        return isLoggedIn ? <Component {...props} /> : <Redirect to="/login" />;
+        return isLoggedIn ? <Component {...props} /> : <Redirect to={{
+          pathname: '/login',
+          state : {
+            from: props.location,
+          }
+        }} />;
       }}
     />
   );
