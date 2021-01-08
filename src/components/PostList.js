@@ -11,7 +11,7 @@ class PostList extends Component{
               <div className="post-wrapper" key={post._id}>
                 <div className="post-header">
                   <div className="post-avatar">
-                    <Link to={post.user._id}>
+                    <Link to={`/user/${post.user._id}`}>
                     <img
                       src="https://www.flaticon.com/svg/static/icons/svg/3237/3237472.svg"
                       alt="user-pic"
