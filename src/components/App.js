@@ -7,6 +7,7 @@ import { Navbar, Home, Page404, Login, Signup, Settings, User } from './';
 import jwt_decode from 'jwt-decode';
 import { authUser } from '../actions/auth';
 import { getAuthTokenFromLocalStorage } from '../helpers/utils';
+import { fetchFriends } from '../actions/friends';
 
 
 const PrivateRoute = (privateRouteProps) => {
@@ -48,6 +49,8 @@ class App extends React.Component{
           name: user.name,
         })
       )
+
+      this.props.dispatch( fetchFriends() );
     }
   }
 
