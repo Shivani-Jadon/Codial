@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import propTypes from 'prop-types';
 import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
 import {fetchPosts} from '../actions/posts';
-import { Navbar, Home, Page404, Login, Signup, Settings } from './';
+import { Navbar, Home, Page404, Login, Signup, Settings, User } from './';
 import jwt_decode from 'jwt-decode';
 import { authUser } from '../actions/auth';
 import { getAuthTokenFromLocalStorage } from '../helpers/utils';
@@ -68,6 +68,8 @@ class App extends React.Component{
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <PrivateRoute path="/settings" component={Settings} isLoggedIn={auth.isLoggedIn} />
+            {/* :userId tells router that route is params */}
+            <PrivateRoute path="/user/:userId" component={User} isLoggedIn={auth.isLoggedIn} />
             <Route component={Page404} />
           </Switch>
         </div>
