@@ -6,6 +6,7 @@ import {fetchPosts} from '../actions/posts';
 import { Navbar, Home, Page404, Login, Signup, Settings } from './';
 import jwt_decode from 'jwt-decode';
 import { authUser } from '../actions/auth';
+import { getAuthTokenFromLocalStorage } from '../helpers/utils';
 
 
 const PrivateRoute = (privateRouteProps) => {
@@ -17,12 +18,12 @@ const PrivateRoute = (privateRouteProps) => {
     <Route 
       path={path}
       render={(props) => {
-        return isLoggedIn ? <Component {...props} /> : <Redirect to={{
-          pathname: '/login',
-          state : {
-            from: props.location,
-          }
-        }} />;
+      return isLoggedIn ? <Component {...props} /> : <Redirect to={{
+        pathname: '/login',
+        state : {
+          from: props.location,
+        }
+      }} />;
       }}
     />
   );
@@ -34,7 +35,7 @@ class App extends React.Component{
     this.props.dispatch( fetchPosts() );
 
     //  STORING JWT TOKEN IN LOCAL STORAGE
-    const token = localStorage.getItem('token');
+    const token = getAuthTokenFromLocalStorage();
 
     if (token) {
       const user = jwt_decode(token);
