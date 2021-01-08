@@ -1,9 +1,9 @@
 import { EDIT_USER_FAIL, EDIT_USER_SUCCESS, LOGIN_FAILED, LOGIN_START, LOGIN_SUCCESS} from './actionTypes';
 import { SIGNUP_FAILED, SIGNUP_START, SIGNUP_SUCCESS } from './actionTypes';
 import {AUTHENTICATE_USER, LOGOUT, CLEAR_AUTH_STATE } from '../actions/actionTypes';
-import { EDIT_USER_SUCCESS, EDIT_USER_FAIL } from '../actions/actionTypes';
+
 import { APIUrls } from '../helpers/urls';
-import { getFormBody } from '../helpers/utils';
+import { getFormBody, getAuthTokenFromLocalStorage } from '../helpers/utils';
 
 // FOR LOGIN
 export function startLogin() {
@@ -40,7 +40,7 @@ export function login(email, password) {
         })
         .then(response => response.json())
         .then((data) => {
-            console.log('data' , data);
+            console.log('EDit data' , data);
             if ( data.success) {
                 localStorage.setItem('token', data.data.token);
                 dispatch(loginSuccess(data.data.user))
@@ -151,7 +151,7 @@ export function editUser(name, password, confirmPassword, userId) {
             method : 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
-                Authorization: ''
+                Authorization:  `Bearer ${getAuthTokenFromLocalStorage()}`,
             },
             body : getFormBody({ name,
                                  password ,
