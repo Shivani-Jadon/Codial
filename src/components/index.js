@@ -6,6 +6,7 @@ import Page404 from './Page404';
 import Login from './Login';
 import Signup from './Signup';
 import Settings from './Settings';
+import User from './User';
 
 export {
     PostList,
@@ -16,4 +17,5 @@ export {
     Login,
     Signup,
     Settings,
+    User,
 }
