@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 class Friendlist extends React.Component{
@@ -17,10 +18,12 @@ class Friendlist extends React.Component{
             {
                 friends && friends.map((friend) => (
                     <li className="friends-item">
-                        <span className="friends-img">
-                            <img src="" alt="Friends image"/>
-                        </span>
-                        <span className="friends-name"> {friend.name} </span>
+                        <Link to={`/user/${friend._id}`}>
+                            <span className="friends-img">
+                                <img src="https://www.flaticon.com/svg/static/icons/svg/3187/3187459.svg" alt="Friends image"/>
+                            </span>
+                            <span className="friends-name"> {friend.name} </span>
+                        </Link>
                     </li>
                 ))
             }
