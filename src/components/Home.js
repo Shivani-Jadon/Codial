@@ -6,10 +6,10 @@ import {PostList, Friendlist} from './';
 class Home extends React.Component{
 
 
-    render(props){
+    render(){
         const { posts,friends, isLoggedIn } = this.props;
-        console.log("props of router" , this.props);  
-        console.log("FRiends", friends);
+        // console.log("props of router" , this.props);  
+        // console.log("FRiends", friends);
                   
         return(
             <div className="home">

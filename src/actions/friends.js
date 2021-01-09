@@ -13,9 +13,9 @@ export function fetchFriends(userId) {
                 Authorization:  `Bearer ${getAuthTokenFromLocalStorage()}`,
             },
         })
-        .then(response => response.json())
+        .then((response) => response.json())
         .then((data) => {
-            
+            console.log('data friends', data.data.friends);
             dispatch( fetchUserFriendSuccess(data.data.friends) );
         });
     }

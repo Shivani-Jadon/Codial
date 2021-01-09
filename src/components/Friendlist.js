@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 class Friendlist extends React.Component{
     render(){
-        const friends = this.props;
+        const {friends} = this.props;
         return (
         <ul className="friends-list">
             <div className="header">Friends</div>

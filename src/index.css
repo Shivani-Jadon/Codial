@@ -336,7 +336,8 @@ nav .nav-links ul li:hover {
   flex-grow: 0.8;
 }
 .friends-list {
-  background: #fff;
+  background: cornflowerblue;
+  padding: 0;
   margin-left: 50px;
   flex-grow: 0.2;
   height: 50vh;
@@ -344,14 +345,15 @@ nav .nav-links ul li:hover {
   margin-top: 20px;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .friends-list .header {
   border-bottom: 1px solid #e0e0e0;
   font-weight: 600;
   font-size: 16px;
-  color: #424242;
+  color: white;
   padding: 20px;
+  text-align: center;
 }
 .friends-list .friends-img img {
   height: 40px;
