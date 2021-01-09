@@ -22,7 +22,7 @@ class Friendlist extends React.Component{
                             <span className="friends-img">
                                 <img src="https://www.flaticon.com/svg/static/icons/svg/3187/3187459.svg" alt="Friends image"/>
                             </span>
-                            <span className="friends-name"> {friend.name} </span>
+                            <span className="friends-name"> {friend.to_user.name} </span>
                         </Link>
                     </li>
                 ))
