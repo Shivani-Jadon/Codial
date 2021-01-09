@@ -13,6 +13,20 @@ class User extends React.Component{
         }
     }
 
+    checkUserFriend() {
+        const {match, friends} = this.props;
+        const userId = match.params.userId;
+
+        const index = friends.map((friend) => friend.to_user._id).indexOf(userId);
+
+        if(index !== -1){
+            return true;
+        }
+
+        return false;
+        
+    }
+
     render(){
         const {match : {params},
                 profile } = this.props;
@@ -22,6 +36,8 @@ class User extends React.Component{
         if (profile.inProgress) {
             return <h1>Loading....</h1>
         }
+
+        const ifUserFriend = this.checkUserFriend();
 
         return (
             <div className='settings'>
@@ -39,15 +55,19 @@ class User extends React.Component{
                     <div className='field-value'> {user.name} </div>
                 </div>
 
-                <button className='save-btn'>Add Friend</button>
+                {   !ifUserFriend ? 
+                    <button className='save-btn'>Add Friend</button> :                
+                    <button className='save-btn'>Remove Friend</button> 
+                }
             </div>
         )
     }
 }
 
-function mapStateToProps( {profile} ){
+function mapStateToProps( {profile, friends} ){
     return {
         profile,
+        friends,
     }
 }
 
