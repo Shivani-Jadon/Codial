@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchProfile } from '../actions/profile';
 import { APIUrls } from '../helpers/urls';
 import { getAuthTokenFromLocalStorage } from '../helpers/utils';
-import { addFriend } from '../actions/friends';
+import { addFriend, removeFriend } from '../actions/friends';
 
 class User extends React.Component{
 
@@ -11,7 +11,8 @@ class User extends React.Component{
         super(props);
         this.state = {
             success : null,
-            fail : null,
+            error : null,
+            successMessage : null,
         }
     }
 
@@ -39,8 +40,7 @@ class User extends React.Component{
     
     handleAddFriend = async () => {
 
-        const {match} = this.props;
-        const userId = match.params.userId;
+        const userId = this.props.match.params.userId;
         const url = APIUrls.addFriends(userId);
 
         const options = {
@@ -52,11 +52,12 @@ class User extends React.Component{
         }
         
         const response = await fetch(url, options);
-        const data = response.json();
+        const data = await response.json();
 
         if (data.success) {
             this.setState({
-                success: true
+                success: true,
+                successMessage: "Friend added successfully",
             });
 
             this.props.dispatch( addFriend(data.data.friendship) );
@@ -70,12 +71,47 @@ class User extends React.Component{
         }
     }
 
+    handleRemoveFriend = async () => {
+        const {match} = this.props;
+        const userId = match.params.userId;
+        const url = APIUrls.removeFriends(userId);
+
+        const options = {
+            method : 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                Authorization:  `Bearer ${getAuthTokenFromLocalStorage()}`,
+            },
+        }
+
+        const response = await fetch(url, options);
+        const data = await response.json();
+
+        if (data.success) {
+            console.log("Data for removal userID : ", userId);
+            this.setState({
+                success: true,
+                successMessage: "Friend Removed successfully",
+            });
+
+            this.props.dispatch( removeFriend(userId) );
+        }
+        else {
+            this.setState({
+                success: null,
+                error : data.message,
+            });
+
+        }
+
+    }
+
     render(){
         const {match : {params},
                 profile } = this.props;
         console.log('this.props', params);
         const user = profile.user;
-        const {success, fail} = this.state;
+        const {success, successMessage, error} = this.state;
 
         if (profile.inProgress) {
             return <h1>Loading....</h1>
@@ -90,6 +126,7 @@ class User extends React.Component{
                         src="https://www.flaticon.com/svg/static/icons/svg/163/163802.svg" alt="user-dp"
                     />
                 </div>
+
                 <div className="field">
                     <div className='field-label'>Email</div>
                     <div className='field-value'> {user.email} </div>
@@ -102,11 +139,14 @@ class User extends React.Component{
                 {   !ifUserFriend ? 
                     <button className='save-btn'
                     onClick={this.handleAddFriend}>Add Friend</button> :                
-                    <button className='save-btn'>Remove Friend</button> 
+                    <button className='save-btn'
+                    onClick={this.handleRemoveFriend}>Remove Friend</button> 
                 }
 
-                {success && <div className="alert success-dailog">Friend added successfully </div>}
-                {fail && <div className="alert error-dailog">Friend added successfully </div>}
+                {success && <div className="alert success-dailog">{successMessage} </div>}
+                {error && <div className="alert error-dailog">{error} </div>}
+                
+                
             </div>
         )
     }

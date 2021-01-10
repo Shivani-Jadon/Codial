@@ -380,6 +380,7 @@ nav .nav-links ul li:hover {
 }
 .friends-name {
   padding: 0 10px;
+  color: #282b48;
 }
 
 /* LOGIN & SIGNUP COMPONENTS */
