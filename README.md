@@ -3,7 +3,7 @@ This is a prototype of a social media application developed using React.js for l
 A singlepage social media webpage built in React. Data is fetched form the API https://codeial.com:8000/api/v2 using Routing. Store is used for providing props to all React Components. 
 
 ## Demo
-Checkout the application [here](https://shivani-jadon.github.io/Codial/) at https://shivani-jadon.github.io/Codial/
+Checkout the application [here](https://shivani-jadon.github.io/Codial/)
 
 ## Features
 - Displays posts and friendlist
