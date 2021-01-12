@@ -8,6 +8,7 @@ import Signup from './Signup';
 import Settings from './Settings';
 import User from './User';
 import Friendlist from './Friendlist';
+import CreatePost from './CreatePost';
 
 export {
     PostList,
@@ -20,4 +21,5 @@ export {
     Settings,
     User,
     Friendlist,
+    CreatePost,
 }
