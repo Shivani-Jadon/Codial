@@ -28,14 +28,14 @@ class Navbar extends React.Component{
             <input placeholder="Search" />
             <div className="search-results">
               <ul>
-                <li className="search-results-row">
+                {/* <li className="search-results-row">
                   <img  src="https://www.flaticon.com/svg/static/icons/svg/3237/3237447.svg" alt="User Avatar"/>
                   <span>Shivani J</span>
                 </li>
                 <li className="search-results-row">
                   <img  src="https://www.flaticon.com/svg/static/icons/svg/3237/3237447.svg" alt="User Avatar"/>
                   <span>Shivani J</span>
-                </li>
+                </li> */}
               </ul>
             </div>
 
