@@ -1,4 +1,6 @@
+// POST ACTIONS
 export const UPDATE_POSTS = 'UPDATE_POSTS';
+export const ADD_POST = 'ADD_POST';
 
 // LOGIN ACTION TYPES
 export const LOGIN_START = 'LOGIN_START';
