@@ -84,7 +84,7 @@ class PostList extends Component{
                  onChange= {(event) => this.handleCommentChange(event,index)}    
                  onKeyPress= {(event) => this.handleAddComment(event,post._id)}           
                  placeholder="Start typing a comment" 
-                 value={comment[index]}
+                 value={comment[index] || ''}
                 />
               </div>
 
@@ -93,7 +93,7 @@ class PostList extends Component{
                   <div className="post-comment-item">
                     <div className="post-comment-header">
                       <span className="post-comment-author">{comment.user.name}</span>
-                      <span className="post-comment-time">{comment.createdAt.slice(14,19)} hrs</span>
+                      <span className="post-comment-time">{comment.createdAt.slice(11,16)} mins ago</span>
                       <span className="post-comment-likes">{comment.likes.length}</span>
                     </div>
 
