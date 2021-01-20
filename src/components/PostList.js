@@ -10,35 +10,40 @@ class PostList extends Component{
   constructor(props){
     super(props);
     this.state = {
-      content: '',
+      comment: [],
     }
   }
 
-  handleCommentChange = (event) => {
+  handleCommentChange = (event,sno) => {
+    const array_comments = [];
+    array_comments[sno] = event.target.value;
+    // console.log(event.target);
     this.setState({
-      content : event.target.value
+      comment : array_comments,
     })
   }
 
   handleAddComment = (event, postId) => {
     
     if (event.key === 'Enter') {
+      // console.log("Post id : ", postId);
       // dispatch action
-      this.props.dispatch( createComment(this.state.content, postId) );
+      this.props.dispatch( createComment(this.state.comment, postId) );
 
       // clear comment
       this.setState({
-        content : '',
+        comment : [],
       })
     }
   }
 
   render() {
     const { posts } = this.props;
+    const { comment } = this.state;
     return (
       <div className="posts-list">
         <CreatePost />
-        {posts.map((post) => (
+        {posts.map((post, index) => (
           <div className="post-wrapper" key={post._id}>
 
             <div className="post-header">
@@ -75,20 +80,20 @@ class PostList extends Component{
                 </div>
               </div>
               <div className="post-comment-box">
-                <input 
-                 onChange= {this.handleCommentChange}    
-                 onKeyPress= {() => this.handleAddComment(post._id)}           
+                <input id={post._id}
+                 onChange= {(event) => this.handleCommentChange(event,index)}    
+                 onKeyPress= {(event) => this.handleAddComment(event,post._id)}           
                  placeholder="Start typing a comment" 
-                 value={this.state.content}
+                 value={comment[index]}
                 />
               </div>
 
               {post.comments.map((comment) => (
                 <div className="post-comments-list" key={comment._id}>
-                  <div className="post-comments-item">
+                  <div className="post-comment-item">
                     <div className="post-comment-header">
                       <span className="post-comment-author">{comment.user.name}</span>
-                      <span className="post-comment-time">a minute ago</span>
+                      <span className="post-comment-time">{comment.createdAt.slice(14,19)} hrs</span>
                       <span className="post-comment-likes">{comment.likes.length}</span>
                     </div>
 
