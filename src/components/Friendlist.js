@@ -22,7 +22,7 @@ class Friendlist extends React.Component{
             {
                 friends && friends.map( (friend) => (
 
-                    <Link className="friends-item" to={`/user/${friend.to_user._id}`}>
+                    <Link className="friends-item" to={`/user/${friend.to_user._id}`} key={friend.to_user._id}>
                         <span className="friends-img">
                             <img src="https://www.flaticon.com/svg/static/icons/svg/3187/3187459.svg" alt="Friends image"/>
                         </span>

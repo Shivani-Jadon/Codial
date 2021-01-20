@@ -76,24 +76,27 @@ class PostList extends Component{
               </div>
               <div className="post-comment-box">
                 <input 
-                 value={this.state.content}
                  onChange= {this.handleCommentChange}    
                  onKeyPress= {() => this.handleAddComment(post._id)}           
                  placeholder="Start typing a comment" 
+                 value={this.state.content}
                 />
               </div>
 
-              <div className="post-comments-list">
-                <div className="post-comments-item">
-                  <div className="post-comment-header">
-                    <span className="post-comment-author">Bill</span>
-                    <span className="post-comment-time">a minute ago</span>
-                    <span className="post-comment-likes">22</span>
-                  </div>
+              {post.comments.map((comment) => (
+                <div className="post-comments-list" key={comment._id}>
+                  <div className="post-comments-item">
+                    <div className="post-comment-header">
+                      <span className="post-comment-author">{comment.user.name}</span>
+                      <span className="post-comment-time">a minute ago</span>
+                      <span className="post-comment-likes">{comment.likes.length}</span>
+                    </div>
 
-                  <div className="post-comment-content">Random comment</div>
+                    <div className="post-comment-content">{comment.content}</div>
+                  </div>
                 </div>
-              </div>
+              ))}
+              
             </div>
           </div>
         ))}
