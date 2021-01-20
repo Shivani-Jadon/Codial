@@ -2,6 +2,7 @@
 export const UPDATE_POSTS = 'UPDATE_POSTS';
 export const ADD_POST = 'ADD_POST';
 export const ADD_COMMENT = 'ADD_COMMENT';
+export const ADD_POST_LIKES = 'ADD_POST_LIKES';
 
 // LOGIN ACTION TYPES
 export const LOGIN_START = 'LOGIN_START';

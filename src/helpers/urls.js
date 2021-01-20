@@ -9,6 +9,7 @@ export const APIUrls = {
     userProfile : (userId) => `${API_ROOT}/users/${userId}`,
     fetchPosts: (page = 1, limit = 5) => `${API_ROOT}/posts?page=${page}&limit=${limit}`,
     createUserPost: () => `${API_ROOT}/posts/create`,
+    toggleLike: (likeableId, likeableType) => `${API_ROOT}/likes/toggle?likeable_id=${likeableId}&likeable_type=${likeableType}`,
     createUserComment: () => `${API_ROOT}/comments`,
     fetchFriends: () => `${API_ROOT}/friendship/fetch_user_friends`,
     addFriends: (userId) => `${API_ROOT}/friendship/create_friendship?user_id=${userId}`,
