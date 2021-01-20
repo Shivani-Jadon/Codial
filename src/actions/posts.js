@@ -112,10 +112,10 @@ export function addLikeToStore(id, likeType, userId) {
     } 
 }
 
-export function addPostLike(id, userId) {
+export function addPostLike(postId, userId) {
     return {
         type : ADD_POST_LIKES,
-        id,
+        postId,
         userId,
     }
 }
