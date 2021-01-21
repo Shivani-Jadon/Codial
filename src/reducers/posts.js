@@ -1,7 +1,8 @@
 import { ADD_COMMENT,
          ADD_POST, 
          UPDATE_POSTS,
-         ADD_POST_LIKES, } from '../actions/actionTypes';
+         ADD_POST_LIKES,
+         ADD_COMMENT_LIKES, } from '../actions/actionTypes';
 
 export default function posts(state =[], action){
     switch(action.type){
@@ -34,6 +35,19 @@ export default function posts(state =[], action){
                 } 
 
                 return post;
+            })
+            return updatedPosts;
+
+        case ADD_COMMENT_LIKES :
+            const updatedComment = state.map((comment) => {
+                if (comment._id === action.commentId) {
+                    return {
+                        ...comment,
+                        likes : [...comment.likes, action.likes],
+                    }
+                } 
+
+                return comment;
             })
             return updatedPosts;
 

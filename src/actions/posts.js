@@ -1,4 +1,8 @@
-import {UPDATE_POSTS, ADD_POST, ADD_COMMENT, ADD_POST_LIKES} from './actionTypes';
+import {UPDATE_POSTS,
+        ADD_POST, 
+        ADD_COMMENT, 
+        ADD_POST_LIKES, 
+        ADD_COMMENT_LIKES} from './actionTypes';
 import { APIUrls } from '../helpers/urls';
 import { getFormBody, getAuthTokenFromLocalStorage} from '../helpers/utils';
 
@@ -105,7 +109,12 @@ export function addLikeToStore(id, likeType, userId) {
             console.log('like data', data);
 
             if( data.success ){
-                dispatch( addPostLike(id, userId) );
+                if(likeType == 'Post') {
+                    dispatch( addPostLike(id, userId) );
+                }
+                if(likeType == 'Comment') {
+                    dispatch( addCommentLike(id, userId) );
+                }
             }
             
         })
@@ -116,6 +125,14 @@ export function addPostLike(postId, userId) {
     return {
         type : ADD_POST_LIKES,
         postId,
+        userId,
+    }
+}
+
+export function addCommentLike(commentId, userId) {
+    return {
+        type : ADD_COMMENT_LIKES,
+        commentId,
         userId,
     }
 }
