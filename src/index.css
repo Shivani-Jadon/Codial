@@ -194,7 +194,7 @@ code {
   top: 13px;
 }
 .post-comments-list .comment-like img {
-  height: 20px;
+  height: 15px;
 }
 .post-comments-list .comment-like img:hover {
   cursor: pointer;
