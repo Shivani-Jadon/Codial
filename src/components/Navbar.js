@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import { logoutUser } from '../actions/auth';
+import { searchUser } from '../actions/search';
 
 class Navbar extends React.Component{
 
@@ -12,8 +13,14 @@ class Navbar extends React.Component{
     this.props.dispatch( logoutUser() );
   };
 
+  handleSearch = (e) => {
+    const searchText = e.target.value;
+
+    this.props.dispatch(searchUser(searchText));
+  }
+
   render(){
-    const {auth} = this.props;
+    const {auth, results} = this.props;
 
     return (
     <nav className='nav'>
@@ -25,18 +32,26 @@ class Navbar extends React.Component{
           </div>
 
           <div className='search-container'>
-            <input placeholder="Search" />
+            <img className="search-icon" 
+              src="https://www.flaticon.com/svg/vstatic/svg/639/639375.svg?token=exp=1611570116~hmac=4e0b318b2e762b938048926a6cc8d63f"
+              alt="search-icon" 
+            />
+            <input placeholder="Search"  onChange={this.handleSearch}/>
             <div className="search-results">
+            {results.length > 0 && (  
               <ul>
-                {/* <li className="search-results-row">
-                  <img  src="https://www.flaticon.com/svg/static/icons/svg/3237/3237447.svg" alt="User Avatar"/>
-                  <span>Shivani J</span>
-                </li>
-                <li className="search-results-row">
-                  <img  src="https://www.flaticon.com/svg/static/icons/svg/3237/3237447.svg" alt="User Avatar"/>
-                  <span>Shivani J</span>
-                </li> */}
+                {results.map((user) => (
+                  
+                  <li className="search-results-row" key={user._id}>
+                    <Link to={`/user/:${user._id}`}>
+                    <img  src="https://www.flaticon.com/svg/static/icons/svg/3237/3237447.svg" alt="User Avatar"/>
+                    <span> {user.name} </span>
+                    </Link>
+                  </li>
+                  
+                ))}
               </ul>
+            )}
             </div>
 
           </div>
@@ -78,6 +93,7 @@ class Navbar extends React.Component{
 function mapStateToProps(state){
   return {
     auth: state.auth,
+    results: state.search.results,
   }
 }
 

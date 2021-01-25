@@ -3,7 +3,8 @@ import {APIUrls} from "../helpers/urls";
 import { getAuthTokenFromLocalStorage } from "../helpers/utils";
 
 export function searchUser (searchText) {
-    const url = APIUrls.searchUser(searchText);
+    return (dispatch) => {
+        const url = APIUrls.searchUser(searchText);
         fetch(url, {
             method : 'POST',
             headers: {
@@ -24,6 +25,7 @@ export function searchUser (searchText) {
             }
             
         });
+    }    
 }
 
 export function searchUserSuccess(users) {

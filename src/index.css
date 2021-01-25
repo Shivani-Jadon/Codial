@@ -301,7 +301,7 @@ nav .nav-links ul li:hover {
   max-height: 452px;
   overflow: auto;
   box-sizing: border-box;
-  display: none;
+  /* display: none; */
 }
 .search-results ul {
   list-style-type: none;
