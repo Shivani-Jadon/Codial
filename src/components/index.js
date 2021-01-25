@@ -11,6 +11,7 @@ import Friendlist from './Friendlist';
 import CreatePost from './CreatePost';
 import Post from './Post';
 import Comment from './Comment';
+import Chat from './Chat';
 
 export {
     PostList,
@@ -26,4 +27,5 @@ export {
     CreatePost,
     Post,
     Comment,
+    Chat,
 }

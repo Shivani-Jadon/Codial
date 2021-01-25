@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {PostList, Friendlist} from './';
+import {PostList, Friendlist, Chat} from './';
 
 
 class Home extends React.Component{
@@ -15,6 +15,7 @@ class Home extends React.Component{
             <div className="home">
                 <PostList posts={posts} /> 
                 {isLoggedIn && <Friendlist friends={friends} />}
+                <Chat />
             </div>
         )
     }
