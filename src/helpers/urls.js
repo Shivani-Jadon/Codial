@@ -1,6 +1,6 @@
 // HELPER TO STORE URLS
 
-const API_ROOT = 'http://codeial.com:8000/api/v2';
+const API_ROOT = 'http://codeial.codingninjas.com:8000/api/v2';
 
 export const APIUrls = {
     login : () => `${API_ROOT}/users/login`,

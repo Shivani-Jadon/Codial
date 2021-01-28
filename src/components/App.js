@@ -64,7 +64,7 @@ class App extends React.Component{
                    
           {/* exact path for routes */}
           <Switch>
-            <Route exact={true} path="/" 
+            <Route exact={true} path={["/", "/Codial"]} 
               render={ (props) => {
                 return <Home {...props} 
                         posts={posts} 
