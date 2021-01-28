@@ -567,3 +567,66 @@ nav .nav-links ul li:hover {
 #add-post-btn:hover {
   cursor: pointer;
 }
+
+/* CHAT COMPONENT */
+.chat-container {
+  background: cornflowerblue;
+  padding: 0;
+  margin-left: 50px;
+  flex-grow: 0.2;
+  height: 50vh;
+  box-sizing: border-box;
+  margin-top: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.chat-container .chat-header{
+  display: flex;
+  justify-content: space-between;
+  /* border-bottom: 1px solid #e0e0e0; */
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  padding: 10px;
+}
+
+.chat-container .chat-footer{
+  display: flex;
+  /* border-bottom: 1px solid #e0e0e0; */
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  padding: 14px 10px;
+}
+.chat-container .chat-messages{
+  height: 70%;
+  background: white;
+}
+.chat-bubble .chat-message-self{
+  background-color: #282b48;
+  color: cornflowerblue;
+  text-align: right;
+}
+.chat-bubble .chat-message-other{
+  background-color: #e0e0e0;
+  color: cornflowerblue;
+  text-align: left;
+}
+.chat-messages .chat-bubble{
+  width: 70%;
+  border: 1px cornflowerblue solid;
+  border-radius: 5px;
+}
+.chat-footer input{
+  height: 20px;
+  border: 1px white solid;
+  border-radius: 5px;
+}
+.chat-footer button{
+  border: 1px white solid;
+  border-radius: 5px;
+  margin-left: 5px;
+  color: white;
+  background: cornflowerblue;
+}

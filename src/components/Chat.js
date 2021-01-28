@@ -72,7 +72,7 @@ class Chat extends Component {
                 <div className="chat-header">
                     Chat
                     <img 
-                    src=""
+                    src="https://www.flaticon.com/svg/vstatic/svg/58/58553.svg?token=exp=1611839774~hmac=54980b7e8a6fc80791f0dd54bae78423"
                     alt="close-chat"
                     height={16}/>
                 </div>
