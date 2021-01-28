@@ -14,8 +14,11 @@ class Home extends React.Component{
         return(
             <div className="home">
                 <PostList posts={posts} /> 
+                <aside>
                 {isLoggedIn && <Friendlist friends={friends} />}
-                <Chat />
+                {isLoggedIn && <Chat />}
+                </aside>
+                
             </div>
         )
     }

@@ -9,6 +9,7 @@ class Chat extends Component {
         this.state = {
             messages : [],
             typedMessage: '',
+            collapsed: true,
         }
 
         this.socket = io.connect('http://54.237.58.65:5000');
@@ -65,19 +66,38 @@ class Chat extends Component {
         }
     }
 
+    collapseChat = () => {
+        const {collapsed} = this.state;
+
+        console.log("Collapsed : ", collapsed);
+
+        if (collapsed == true) {
+            this.setState({
+                collapsed: false
+            })
+        }else {
+            this.setState({
+                collapsed: true
+            })
+        }
+    }
+
     render() {
-        const {typedMessage, messages} = this.state;
+        const {typedMessage, messages, collapsed} = this.state;
         return (
             <div className="chat-container">
                 <div className="chat-header">
                     Chat
+                    <button className="no-btn"
+                    onClick={this.collapseChat}>
                     <img 
                     src="https://www.flaticon.com/svg/vstatic/svg/58/58553.svg?token=exp=1611839774~hmac=54980b7e8a6fc80791f0dd54bae78423"
                     alt="close-chat"
                     height={16}/>
+                    </button>
                 </div>
 
-                <div className="chat-messages">
+                <div className={collapsed ? "chat-messages" : "no-chat"}>
                     {messages.map((message) => (
                         <div className={message.self ? "chat-bubble chat-message-self" : "chat-bubble chat-message-other"}>
                             {message.content}
@@ -85,7 +105,7 @@ class Chat extends Component {
                     ))}
                 </div>
 
-                <div className="chat-footer">
+                <div className={collapsed ? "chat-footer" : "no-chat"}>
                     <input type="text" value={typedMessage}
                         onChange={(e) => this.setState({ typedMessage: e.target.value})} />
                     <button>Submit</button>

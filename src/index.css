@@ -333,15 +333,20 @@ nav .nav-links ul li:hover {
   width: 80%;
   margin: 0 auto;
 }
+.home aside {
+  max-width: 50%;
+}
 .home .posts-list {
   flex-grow: 0.8;
 }
 .friends-list {
+  position: sticky;
+  top: 20px;
   background: cornflowerblue;
   padding: 0;
   margin-left: 50px;
   flex-grow: 0.2;
-  height: 50vh;
+  height: 45vh;
   box-sizing: border-box;
   margin-top: 20px;
   border: 1px solid #e0e0e0;
@@ -568,13 +573,16 @@ nav .nav-links ul li:hover {
   cursor: pointer;
 }
 
+
 /* CHAT COMPONENT */
 .chat-container {
+  position: sticky;
+  top: 50vh;
   background: cornflowerblue;
   padding: 0;
   margin-left: 50px;
   flex-grow: 0.2;
-  height: 50vh;
+  /* height: 50vh; */
   box-sizing: border-box;
   margin-top: 20px;
   border: 1px solid #e0e0e0;
@@ -600,8 +608,11 @@ nav .nav-links ul li:hover {
   padding: 14px 10px;
 }
 .chat-container .chat-messages{
-  height: 70%;
+  height: 30vh;
   background: white;
+}
+.chat-container .no-chat {
+  display: none;
 }
 .chat-bubble .chat-message-self{
   background-color: #282b48;
@@ -619,6 +630,7 @@ nav .nav-links ul li:hover {
   border-radius: 5px;
 }
 .chat-footer input{
+  width: 80%;
   height: 20px;
   border: 1px white solid;
   border-radius: 5px;
