@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {addLikeToStore, createComment} from '../actions/posts';
 import {Comment} from './';
+import heart from '../assets/heart_icon.png';
+
 
 class Post extends Component {
     constructor(props){
@@ -65,7 +67,7 @@ class Post extends Component {
                 <button className="post-like no-btn"
                  onClick={this.handleLike}>
                 { isPostLiked ? <img
-                    src="https://www.flaticon.com/svg/vstatic/svg/535/535285.svg?token=exp=1611150614~hmac=2dbfa9cf54a85f5fcff401714fc5cc77"
+                    src={heart}
                     alt="likes-pic"
                     /> :
                     <img

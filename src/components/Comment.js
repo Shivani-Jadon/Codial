@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {addLikeToStore} from '../actions/posts';
+import heart from '../assets/heart_icon.png';
 
 class Comment extends Component {
 
@@ -22,11 +23,11 @@ class Comment extends Component {
                     <button className="comment-like no-btn"
                     onClick={this.handleLike}>
                     { isCommentLiked ? <img
-                        src="https://www.flaticon.com/svg/static/icons/svg/1076/1076984.svg"
+                        src={heart}
                         alt="likes-icon"
                         /> :
                         <img
-                        src="https://www.flaticon.com/svg/vstatic/svg/535/535234.svg?token=exp=1611235581~hmac=88bfbcfc13118a9cf91e6e29f52f7155"
+                        src="https://www.flaticon.com/svg/static/icons/svg/1076/1076984.svg"
                         alt="likes-pic"
                         /> 
                         

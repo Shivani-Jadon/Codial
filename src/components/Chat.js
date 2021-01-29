@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client';
 import {connect} from 'react-redux';
+import collapseIcon from '../assets/collapse.png';
 
 class Chat extends Component {
     constructor (props) {
@@ -91,7 +92,7 @@ class Chat extends Component {
                     <button className="no-btn"
                     onClick={this.collapseChat}>
                     <img 
-                    src="https://www.flaticon.com/svg/vstatic/svg/58/58553.svg?token=exp=1611839774~hmac=54980b7e8a6fc80791f0dd54bae78423"
+                    src={collapseIcon}
                     alt="close-chat"
                     height={16}/>
                     </button>

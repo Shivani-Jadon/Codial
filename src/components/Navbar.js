@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import { logoutUser } from '../actions/auth';
 import { searchUser } from '../actions/search';
+import searchIcon from '../assets/search_icon.png';
 
 class Navbar extends React.Component{
 
@@ -33,7 +34,7 @@ class Navbar extends React.Component{
 
           <div className='search-container'>
             <img className="search-icon" 
-              src="https://www.flaticon.com/svg/vstatic/svg/639/639375.svg?token=exp=1611570116~hmac=4e0b318b2e762b938048926a6cc8d63f"
+              src={searchIcon}
               alt="search-icon" 
             />
             <input placeholder="Search"  onChange={this.handleSearch}/>
